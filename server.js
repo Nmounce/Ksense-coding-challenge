@@ -1,25 +1,16 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const morgan = require('morgan');
-
-const PORT = process.env.PORT || 3002;
+const routes = require('./routes');
+const sequelize = require('./config/connection')
 
 const app = express();
+const PORT = process.env.PORT || 3002;
 
-app.use(logger('dev'));
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
+app.use(routes);
 
-mongoose.connect(
-    process.env.MONGODB_URI || 'mongodb://localhost/todo', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
-
-app.use(require('./routes/api'));
-app.use(require('./routes/html-route'));
-
-app.listen(PORT, () => {
-    console.log(`App running on port ${PORT}`);
+sequelize.sync({
+    force: false
+}).then(() => {
+    app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
 });

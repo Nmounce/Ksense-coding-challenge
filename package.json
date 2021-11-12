@@ -1,0 +1,26 @@
+{
+  "name": "ksense-coding-challenge",
+  "version": "1.0.0",
+  "description": "one-page web application that receives JSON data and renders the data into the DOM using the https://jsonplaceholder.typicode.com/ API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nmounce/Ksense-coding-challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nmounce/Ksense-coding-challenge/issues"
+  },
+  "homepage": "https://github.com/Nmounce/Ksense-coding-challenge#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongojs": "^3.1.0",
+    "mongoose": "^6.0.12",
+    "morgan": "^1.10.0"
+  }
+}

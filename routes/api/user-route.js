@@ -14,7 +14,6 @@ router.get('/', async (req, res) => {
     }
 });
 
-//get 1 user with associated posts
 router.get(':/id', async (req, res) => {
     //find 1 user by its `id` value
     //include all associated posts

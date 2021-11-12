@@ -17,7 +17,7 @@ mongoose.connect(
     useUnifiedTopology: true
 });
 
-app.use(require('./routes/api-route'));
+app.use(require('./routes/api'));
 app.use(require('./routes/html-route'));
 
 app.listen(PORT, () => {

@@ -4,6 +4,7 @@
 
 ## Description
 
+**Not Fully Functional**
 This is a one-page web application that receives JSON data and renders the data into the DOM using the https://jsonplaceholder.typicode.com/ API.
 
 ![](resources/code-snippet1.PNG)

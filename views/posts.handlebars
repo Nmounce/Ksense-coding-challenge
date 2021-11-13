@@ -1,0 +1,18 @@
+<div class="posts">
+    {{#each post as |post|}}
+    <div class="card">
+        <h3 class="card-header"></h3>
+        <section class="post card-body">
+            <div class="user">
+                {{user.name}}
+            </div>
+            <div class="title">
+                {{post.title}}
+            </div>
+            <div class="text">
+                {{post.body}}
+            </div>
+        </section>
+    </div>
+    {{/each}}
+</div>

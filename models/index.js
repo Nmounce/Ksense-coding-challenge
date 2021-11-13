@@ -6,13 +6,13 @@ const Posts = require('./Posts');
 // post belongs to user
 
 Posts.belongsTo(User, {
-    foreignKey: 'user_id'
+    foreignKey: 'id'
 });
 
 //Users have many posts
 
 User.hasMany(Posts, {
-    foreignKey: 'user_id', onDelete: 'CASCADE',
+    foreignKey: 'id', onDelete: 'CASCADE',
 });
 
 module.exports = {

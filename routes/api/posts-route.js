@@ -4,22 +4,23 @@ const { User, Posts } = require('../../models');
 //the `/api/posts` endpoint
 
 router.get('/', async (req, res) => {
-    //find all users
-    //include all associated  posts
+    //find all posts
     try {
-        const userData = await User.findAll();
-        res.status(200).json(userData);
+        const postData = await Posts.findAll({
+            include: [{
+                model: User
+            }]
+        })
+        res.status(200).json(postData);
     } catch (err) {
         res.status(500).json(err);
     }
 });
 
-//get 1 user with associated posts
 router.get(':/id', async (req, res) => {
-    //find 1 user by its `id` value
-    //include all associated posts
+    //find all posts by 1 user by userId
     try {
-        const userData = await User.findByPk(req.params.id, {
+        const postData = await User.findByPk(req.params.id, {
             include: [{ model: Posts }]
         });
         if (!userData) {

@@ -1,20 +1,12 @@
 require('dotenv').config();
 
-const mysql = require('mysql2');
-const inquirer = require('inquirer');
-const cTables = require('console.table');
+const Sequelize = require('sequelize');
 
-const connection = mysql.createConnection({
-  host: 'localhost',
-  port: 3001,
-  user: 'root',
-  password: 'Justfuckingwork1!',
-  database: 'todos_db'
-});
+const sequelize = process.env.JAWSDB_URL
+  ? new Sequelize(process.env.JAWSDB_URL)
+  : new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PW, {
+    host: 'localhost',
+    dialect: 'mysql',
+    });
 
-connection.connect(function (err) {
-  if (err) throw err;
-  console.log('Database Connected');
-});
-
-module.exports = connection;
+module.exports = sequelize;
